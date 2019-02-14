@@ -1,25 +1,28 @@
 "Editor options
+" Shows line numbers
 set number
+" Shows filetype syntax
 syntax on
 set backspace=2
 set nocompatible
-set numberwidth=4
+set numberwidth=2
 set clipboard=unnamedplus
+set ts=2
+set expandtab
+set shiftwidth=2
+set mouse=a
+filetype on
+set ai
 
-"key reassignments
+" Moves to end of line
 nnoremap 9 0
+" Moves to beginning of line
 nnoremap 0 $
+" Sets kj as being escape "
 inoremap kj <esc>
 vnoremap kj <esc>
 inoremap KJ <esc>
 vnoremap KJ <esc>
-"Key mapped to do nothing
-inoremap <esc> <nop>
-vnoremap <esc> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <right> <nop>
-noremap <left> <nop>
 
 "sets q to yank
 noremap q "*y
@@ -28,17 +31,26 @@ nnoremap p "*P
 nnoremap P "*p
 noremap w d
 
-"sets s to select
+" Sets s to select "
 noremap s v
+" Sets s to select whole line "
 noremap S V
-"Sets z as undo and Z as redo
+" Sets z as undo "
 noremap z u
+" Sets Z as redo "
 noremap Z <c-r>
-"Moves lines up or down
-nnoremap - Vdp
-nnoremap _ Vd<esc>kP
-"sets end (e) to move to one past the end
-nnoremap e el
 
-nnoremap c 0i#<esc>
-nnoremap C 0i//<esc>
+" Moves line down "
+nnoremap _ Vdp
+" Moves line up "
+nnoremap - Vd<esc>kP
+" Moves to the end + 1 of the current word "
+nnoremap e el
+" Inserts python comment "
+nnoremap C 0i#<esc>
+" Inserts C comment "
+nnoremap c A /*  */<esc>hhi
+" Scroll up "
+nnoremap K <c-u>
+" Scroll down "
+nnoremap J <c-d>
