@@ -1,3 +1,5 @@
+" ====== Editor Window ==== "
+
 " Shows line numbers "
 set number
 " Shows filetype syntax "
@@ -35,7 +37,30 @@ set backspace=indent,eol,start
 set scrolloff=5
 " Word wrap "
 set wrap
+" Makes Lightline work "
+set laststatus=2
+" Removes mode below lightline "
+set noshowmode
 
+" ==== Plugins ==== "
+
+" Gets vim-plug if not installed "
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
+if !has('gui_running')
+  set t_Co=256
+endif
+
+" ==== Navigation ==== "
 
 " Moves to end of line "
 nnoremap 9 0 
